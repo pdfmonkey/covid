@@ -7,6 +7,17 @@
     <title><%= yield_content :title %></title>
     <meta content="<%= yield_content :description %>" name="description">
 
+    <meta property="og:description" content="<%= yield_content :description %>">
+    <meta property="og:image" content="/assets/banner.png">
+    <meta property="og:title" content="<%= yield_content :title %>">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://covid.pdfmonkey.io">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="/assets/banner.png">
+    <meta name="twitter:description" content="<%= yield_content :description %>">
+    <meta name="twitter:site" content="@pdfmonkey">
+    <meta name="twitter:title" content="<%= yield_content :title %>">
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 
     <style>
