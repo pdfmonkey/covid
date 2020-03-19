@@ -1,0 +1,76 @@
+<% content_for :title, 'Attestation de déplacement dérogatoire' %>
+<% content_for :description, 'Générez gratuitement votre Attestation de déplacement dérogatoire en PDF.' %>
+
+<p><a href="/">&larr; Retour</a></p>
+
+<h1>Attestation de déplacement dérogatoire</h1>
+
+<form method="POST" action="/attestation-deplacement">
+  <div class="form-group">
+    <label for="fullname">Nom complet</label>
+    <input name="fullname" type="text" class="form-control" id="fullname" aria-describedby="fullnameHelp" required>
+    <small id="fullnameHelp" class="form-text text-muted">(ex: Marcel Dupont)</small>
+  </div>
+
+  <div class="form-group">
+    <label for="birthdate">Date de naissance</label>
+    <input name="birthdate" type="text" placeholder="DD/MM/AAAA" class="form-control" id="birthdate" aria-describedby="birthdateHelp" required>
+    <small id="birthdateHelp" class="form-text text-muted">(ex: 14/07/1990)</small>
+  </div>
+
+  <div class="form-group">
+    <label for="address">Adresse</label>
+    <input  name="address"type="text" class="form-control" id="address" aria-describedby="addressHelp" required>
+    <small id="addressHelp" class="form-text text-muted">(ex: 27 Rue Descartes 75005 Paris)</small>
+  </div>
+
+  <fieldset class="form-group">
+    <legend>Motif(s) du déplacement</legend>
+
+    <div class="form-check">
+      <input name="reasons[]" class="form-check-input" type="checkbox" value="work" id="work">
+      <label class="form-check-label" for="work">
+        déplacements entre le domicile et le lieu d’exercice de l’activité professionnelle, lorsqu’ils sont indispensables à l’exercice d’activités ne pouvant être organisées sous forme de télétravail (sur justificatif permanent) ou déplacements professionnels ne pouvant être différés&nbsp;;
+      </label>
+    </div>
+    <div class="form-check">
+      <input name="reasons[]" class="form-check-input" type="checkbox" value="groceries" id="groceries">
+      <label class="form-check-label" for="groceries">
+        déplacements pour effectuer des achats de première nécessité dans des établissements autorisés (liste sur gouvernement.fr)&nbsp;;
+      </label>
+    </div>
+    <div class="form-check">
+      <input name="reasons[]" class="form-check-input" type="checkbox" value="health" id="health">
+      <label class="form-check-label" for="health">
+        déplacements pour motif de santé&nbsp;;
+      </label>
+    </div>
+    <div class="form-check">
+      <input name="reasons[]" class="form-check-input" type="checkbox" value="family" id="family">
+      <label class="form-check-label" for="family">
+        déplacements pour motif familial impérieux, pour l’assistance aux personnes vulnérables ou la garde d’enfants&nbsp;;
+      </label>
+    </div>
+    <div class="form-check">
+      <input name="reasons[]" class="form-check-input" type="checkbox" value="activities" id="activities">
+      <label class="form-check-label" for="activities">
+        déplacements brefs, à proximité du domicile, liés à l’activité physique individuelle des personnes, à l’exclusion de toute pratique sportive collective, et aux besoins des animaux de compagnie.
+      </label>
+    </div>
+  </fieldset>
+
+  <div class="form-group">
+    <label for="city">Fait à …, le <%= Date.today.strftime('%d/%m/%Y') %></label>
+    <input name="city" type="text" class="form-control" id="city" aria-describedby="cityHelp" required>
+    <small id="cityHelp" class="form-text text-muted">(ex: Paris)</small>
+  </div>
+
+  <div class="form-group website">
+    <label for="website">Website</label>
+    <input name="website" type="text" class="form-control" id="website" aria-describedby="websiteHelp">
+    <small id="websiteHelp" class="form-text text-muted">(ex: www.honey.com)</small>
+  </div>
+
+  <input name="date" type="hidden" value="<%= Date.today.strftime('%d/%m/%Y') %>">
+  <button type="submit" class="btn btn-primary">Générer mon attestation</button>
+</form>

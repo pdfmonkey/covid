@@ -1,0 +1,95 @@
+<% content_for :title, 'Justificatif de déplacement professionnel' %>
+<% content_for :description, 'Générez gratuitement votre Justificatif de déplacement professionnel en PDF.' %>
+
+<p><a href="/">&larr; Retour</a></p>
+
+<h1>Justificatif de déplacement professionnel</h1>
+
+<form method="POST" action="/justificatif-deplacement-pro">
+  <div class="form-group">
+    <label for="employerName">Nom du représentant employeur</label>
+    <input name="employerName" type="text" class="form-control" id="employerName" aria-describedby="employerNameHelp" required>
+    <small id="employerNameHelp" class="form-text text-muted">(ex: Marcel Dupont)</small>
+  </div>
+
+  <div class="form-group">
+    <label for="employerJob">Fonction du représentant employeur</label>
+    <input name="employerJob" type="text" class="form-control" id="employerJob" aria-describedby="employerJobHelp" required>
+    <small id="employerJobHelp" class="form-text text-muted">(ex: Président)</small>
+  </div>
+
+  <div class="form-group">
+    <label for="companyName">Entreprise</label>
+    <input name="companyName" type="text" class="form-control" id="companyName" aria-describedby="companyNameHelp" required>
+    <small id="companyNameHelp" class="form-text text-muted">(ex: ACME Corp.)</small>
+  </div>
+
+  <div class="form-group">
+    <label for="companySealUrl">Cachet Entreprise (URL d'image)</label>
+    <input name="companySealUrl" type="text" class="form-control" id="companySealUrl" aria-describedby="companySealUrlHelp" required>
+    <small id="companySealUrlHelp" class="form-text text-muted">(ex: https://www.exemple.fr/cachet-entreprise.png)</small>
+  </div>
+
+  <div class="form-group">
+    <label for="firstname">Prénom</label>
+    <input name="firstname" type="text" class="form-control" id="firstname" aria-describedby="firstnameHelp" required>
+    <small id="firstnameHelp" class="form-text text-muted">(ex: Marcel)</small>
+  </div>
+
+  <div class="form-group">
+    <label for="lastname">Nom</label>
+    <input name="lastname" type="text" class="form-control" id="lastname" aria-describedby="lastnameHelp" required>
+    <small id="lastnameHelp" class="form-text text-muted">(ex: Dupont)</small>
+  </div>
+
+  <div class="form-group">
+    <label for="birthdate">Date de naissance</label>
+    <input name="birthdate" type="text" placeholder="DD/MM/AAAA" class="form-control" id="birthdate" aria-describedby="birthdateHelp" required>
+    <small id="birthdateHelp" class="form-text text-muted">(ex: 14/07/1990)</small>
+  </div>
+
+  <div class="form-group">
+    <label for="address">Adresse du domicile</label>
+    <input  name="address"type="text" class="form-control" id="address" aria-describedby="addressHelp" required>
+    <small id="addressHelp" class="form-text text-muted">(ex: 27 Rue Descartes 75005 Paris)</small>
+  </div>
+
+  <div class="form-group">
+    <label for="jobNature">Nature de l'activité professionnelle </label>
+    <input name="jobNature" type="text" class="form-control" id="jobNature" aria-describedby="jobNatureHelp" required>
+    <small id="jobNatureHelp" class="form-text text-muted">(ex: Transporteur)</small>
+  </div>
+
+  <div class="form-group">
+    <label for="jobLocation">Lieu d'exercice de l'activité professionnelle</label>
+    <input name="jobLocation" type="text" class="form-control" id="jobLocation" aria-describedby="jobLocationHelp" required>
+    <small id="jobLocationHelp" class="form-text text-muted">(ex: Paris)</small>
+  </div>
+
+  <div class="form-group">
+    <label for="itinerary">Trajet de déplacement</label>
+    <input name="itinerary" type="text" class="form-control" id="itinerary" aria-describedby="itineraryHelp" required>
+    <small id="itineraryHelp" class="form-text text-muted">(ex: Paris 13e, 14e et 15e)</small>
+  </div>
+
+  <div class="form-group">
+    <label for="travelMode">Moyen de déplacement </label>
+    <input name="travelMode" type="text" class="form-control" id="travelMode" aria-describedby="travelModeHelp" required>
+    <small id="travelModeHelp" class="form-text text-muted">(ex: Scooter)</small>
+  </div>
+
+  <div class="form-group">
+    <label for="city">Fait à …, le <%= Date.today.strftime('%d/%m/%Y') %></label>
+    <input name="city" type="text" class="form-control" id="city" aria-describedby="cityHelp" required>
+    <small id="cityHelp" class="form-text text-muted">(ex: Paris)</small>
+  </div>
+
+  <div class="form-group website">
+    <label for="website">Website</label>
+    <input name="website" type="text" class="form-control" id="website" aria-describedby="websiteHelp">
+    <small id="websiteHelp" class="form-text text-muted">(ex: www.honey.com)</small>
+  </div>
+
+  <input name="date" type="hidden" value="<%= Date.today.strftime('%d/%m/%Y') %>">
+  <button type="submit" class="btn btn-primary">Générer mon attestation</button>
+</form>
