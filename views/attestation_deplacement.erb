@@ -19,6 +19,12 @@
   </div>
 
   <div class="form-group">
+    <label for="birthLocation">Lieu de naissance</label>
+    <input name="birthLocation" type="text" class="form-control" id="birthLocation" aria-describedby="birthLocationHelp" required>
+    <small id="birthLocationHelp" class="form-text text-muted">(ex: Paris 15e)</small>
+  </div>
+
+  <div class="form-group">
     <label for="address">Adresse</label>
     <input  name="address"type="text" class="form-control" id="address" aria-describedby="addressHelp" required>
     <small id="addressHelp" class="form-text text-muted">(ex: 27 Rue Descartes 75005 Paris)</small>
@@ -30,39 +36,63 @@
     <div class="form-check">
       <input name="reasons[]" class="form-check-input" type="checkbox" value="work" id="work">
       <label class="form-check-label" for="work">
-        déplacements entre le domicile et le lieu d’exercice de l’activité professionnelle, lorsqu’ils sont indispensables à l’exercice d’activités ne pouvant être organisées sous forme de télétravail (sur justificatif permanent) ou déplacements professionnels ne pouvant être différés&nbsp;;
+        Déplacements entre le domicile et le lieu d’exercice de l’activité professionnelle, lorsqu’ils sont indispensables à l’exercice d’activités ne pouvant être organisées sous forme de télétravail ou déplacements professionnels ne pouvant être différés.
       </label>
     </div>
     <div class="form-check">
       <input name="reasons[]" class="form-check-input" type="checkbox" value="groceries" id="groceries">
       <label class="form-check-label" for="groceries">
-        déplacements pour effectuer des achats de première nécessité dans des établissements autorisés (liste sur gouvernement.fr)&nbsp;;
+        Déplacements pour effectuer des achats de fournitures nécessaires à l’activité professionnelle et des achats de première nécessité dans des établissements dont les activités demeurent autorisées (liste sur gouvernement.fr).
       </label>
     </div>
     <div class="form-check">
       <input name="reasons[]" class="form-check-input" type="checkbox" value="health" id="health">
       <label class="form-check-label" for="health">
-        déplacements pour motif de santé&nbsp;;
+        Consultations et soins ne pouvant être assurés à distance et ne pouvant être différés&nbsp;; consultations et soins des patients atteints d'une affection de longue durée.
       </label>
     </div>
     <div class="form-check">
       <input name="reasons[]" class="form-check-input" type="checkbox" value="family" id="family">
       <label class="form-check-label" for="family">
-        déplacements pour motif familial impérieux, pour l’assistance aux personnes vulnérables ou la garde d’enfants&nbsp;;
+        Déplacements pour motif familial impérieux, pour l’assistance aux personnes vulnérables ou la garde d’enfants.
       </label>
     </div>
     <div class="form-check">
       <input name="reasons[]" class="form-check-input" type="checkbox" value="activities" id="activities">
       <label class="form-check-label" for="activities">
-        déplacements brefs, à proximité du domicile, liés à l’activité physique individuelle des personnes, à l’exclusion de toute pratique sportive collective, et aux besoins des animaux de compagnie.
+        Déplacements brefs, dans la limite d'une heure quotidienne et dans un rayon maximal d'un kilomètre autour du domicile, liés soit à l'activité physique individuelle des personnes, à l'exclusion de toute pratique sportive collective et de toute proximité avec d'autres personnes, soit à la promenade avec les seules personnes regroupées dans un même domicile, soit aux besoins des animaux de compagnie.
+      </label>
+    </div>
+    <div class="form-check">
+      <input name="reasons[]" class="form-check-input" type="checkbox" value="convocation" id="convocation">
+      <label class="form-check-label" for="convocation">
+        Convocation judiciaire ou administrative.
+      </label>
+    </div>
+    <div class="form-check">
+      <input name="reasons[]" class="form-check-input" type="checkbox" value="mission" id="mission">
+      <label class="form-check-label" for="mission">
+        Participation à des missions d’intérêt général sur demande de l’autorité administrative.
       </label>
     </div>
   </fieldset>
 
   <div class="form-group">
-    <label for="city">Fait à …, le <%= Date.today.strftime('%d/%m/%Y') %></label>
+    <label for="city">Fait à …</label>
     <input name="city" type="text" class="form-control" id="city" aria-describedby="cityHelp" required>
     <small id="cityHelp" class="form-text text-muted">(ex: Paris)</small>
+  </div>
+
+  <div class="form-group">
+    <label for="date">Date de sortie</label>
+    <input name="date" type="text" placeholder="DD/MM/AAAA" class="form-control" id="date" value="<%= Time.now.strftime('%d/%m/%Y') %>" aria-describedby="dateHelp" required>
+    <small id="dateHelp" class="form-text text-muted">(ex: 24/03/2020)</small>
+  </div>
+
+  <div class="form-group">
+    <label for="time">Heure de sortie</label>
+    <input name="time" type="text" class="form-control" id="time" value="<%= Time.now.strftime('%Hh%M') %>" aria-describedby="timeHelp" required>
+    <small id="timeHelp" class="form-text text-muted">(ex: 12h34)</small>
   </div>
 
   <div class="form-group website">
