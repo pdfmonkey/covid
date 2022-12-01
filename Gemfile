@@ -11,7 +11,7 @@ gem 'pdfmonkey', '~> 0.4.0'
 gem 'puma', '~> 4.3'
 gem 'rollbar', '~> 2.23', require: 'rollbar/middleware/sinatra'
 gem 'sinatra-contrib', '~> 2.0', require: false
-gem 'sinatra', '~> 2.0'
+gem 'sinatra', '~> 2.2'
 
 group :development do
   gem 'dotenv', '~> 2.7', require: 'dotenv/load'
